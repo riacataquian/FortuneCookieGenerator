@@ -1,4 +1,4 @@
-defmodule FortuneGenerator.PageController do
+defmodule FortuneGenerator.FortuneController do
   use FortuneGenerator.Web, :controller
 
   alias FortuneGenerator.Queries.FortuneCookie
@@ -7,11 +7,16 @@ defmodule FortuneGenerator.PageController do
     render conn, "index.html"
   end
 
-  def show(conn, _params) do
+  def show(conn, %{"id" => fortune_id}) do
+    fortune_cookie = FortuneCookie.get(fortune_id)
+    render conn, "show.html", fortune_cookie: fortune_cookie
+  end
+
+  def edit(conn, _params) do
     fortune_cookie = FortuneCookie.random()
     changeset = FortuneCookie.build_changeset(fortune_cookie)
 
-    render conn, "show.html", changeset: changeset, fortune_cookie: fortune_cookie
+    render conn, "edit.html", changeset: changeset, fortune_cookie: fortune_cookie
   end
 
   def update(conn, %{"fortune_cookie" => params, "id" => id}) do
@@ -19,7 +24,7 @@ defmodule FortuneGenerator.PageController do
       {:ok, fortune_cookie} ->
         conn
         |> put_flash(:info, "You have updated your fortune.")
-        |> redirect(to: page_path(conn, :show, fortune_cookie))
+        |> redirect(to: fortune_path(conn, :show, fortune_cookie))
       {:error, changeset} -> raise changeset
     end
   end
