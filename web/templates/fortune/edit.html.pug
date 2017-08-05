@@ -1,4 +1,4 @@
-h1= @fortune_cookie.fortune
+h1.fortune-header= @fortune_cookie.fortune
 
 = render "form.html", changeset: @changeset, action: fortune_path(@conn, :update, @fortune_cookie)
 

@@ -8,6 +8,10 @@ config :fortune_generator, FortuneGenerator.Endpoint,
 
 config :fortune_generator, :sql_sandbox, true
 
+config :wallaby,
+  max_wait_time: 5_000,
+  js_errors: false
+
 # Print only warnings and errors during test
 config :logger, level: :warn
 

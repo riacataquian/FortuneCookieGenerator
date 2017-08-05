@@ -1,5 +1,5 @@
-= form_for @changeset, @action, fn f ->
- = text_input f, :fortune, required: true
+= form_for @changeset, @action, [class: "fortune-form"], fn f ->
+ = text_input f, :fortune, class: "field", required: true
   = error_tag f, :fortune
 
  = submit "Change your fortune"
