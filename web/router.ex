@@ -17,7 +17,8 @@ defmodule FortuneGenerator.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
-    get "/fortune", PageController, :new
+    get "/fortune", PageController, :show
+    put "/fortune/:id", PageController, :update
   end
 
   # Other scopes may use custom stacks.

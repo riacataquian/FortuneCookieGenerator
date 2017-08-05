@@ -7,9 +7,20 @@ defmodule FortuneGenerator.PageController do
     render conn, "index.html"
   end
 
-  def new(conn, _params) do
+  def show(conn, _params) do
     fortune_cookie = FortuneCookie.random()
+    changeset = FortuneCookie.build_changeset(fortune_cookie)
 
-    render conn, "new.html", fortune_cookie: fortune_cookie
+    render conn, "show.html", changeset: changeset, fortune_cookie: fortune_cookie
+  end
+
+  def update(conn, %{"fortune_cookie" => params, "id" => id}) do
+    case FortuneCookie.update(id, params) do
+      {:ok, fortune_cookie} ->
+        conn
+        |> put_flash(:info, "You have updated your fortune.")
+        |> redirect(to: page_path(conn, :show, fortune_cookie))
+      {:error, changeset} -> raise changeset
+    end
   end
 end
