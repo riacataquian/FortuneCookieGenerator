@@ -49,7 +49,7 @@ defmodule FortuneGenerator.Mixfile do
      {:gettext, "~> 0.11"},
      {:expug, "~> 0.7.3"},
      {:phoenix_expug, ">= 0.0.3"},
-     {:wallaby, "~> 0.18.1"},
+     {:wallaby, "~> 0.18.1", only: :test},
      {:cowboy, "~> 1.0"}]
   end
 
