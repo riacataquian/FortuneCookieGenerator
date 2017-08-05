@@ -28,7 +28,12 @@ defmodule FortuneGenerator.FortuneController do
         conn
         |> put_flash(:info, "You have updated your fortune.")
         |> redirect(to: fortune_path(conn, :show, fortune_cookie))
-      {:error, changeset} -> raise changeset
+      {:error, changeset} ->
+        fortune_cookie = FortuneCookie.get(id)
+
+        conn
+        |> put_flash(:error, "You have entered invalid values. Please check the errors below.")
+        |> render("edit.html", changeset: changeset, fortune_cookie: fortune_cookie)
     end
   end
 end
