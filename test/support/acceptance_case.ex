@@ -5,7 +5,6 @@ defmodule FortuneGenerator.AcceptanceCase do
     quote do
       use Wallaby.DSL
 
-      # import Wallaby.Query, only: [link: 1, css: 1, button: 1]
       import Ecto.Query, only: [from: 2]
       import FortuneGenerator.Router.Helpers
       alias FortuneGenerator.Repo

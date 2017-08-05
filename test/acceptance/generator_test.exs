@@ -1,5 +1,6 @@
 defmodule FortuneGenerator.GeneratorTest do
   use FortuneGenerator.AcceptanceCase
+  import FortuneGenerator.AcceptanceHelpers
 
   alias FortuneGenerator.{
     Repo,
@@ -15,14 +16,8 @@ defmodule FortuneGenerator.GeneratorTest do
     {:ok, %{fortune_cookie: fortune_cookie}}
   end
 
-  defp click_reveal_fortune(session) do
-    session
-    |> visit("/")
-    |> click_link("Reveal Fortune")
-  end
-
-  describe "clicking 'reveal fortune' link will redirect to edit" do
-    test "it display random fortune", %{session: session} do
+  describe "clicking 'reveal fortune' link will redirect to edit/2" do
+    test "it will display random fortune", %{session: session} do
       session
       |> click_reveal_fortune()
       |> assert_in_body(@fortune)
@@ -37,7 +32,7 @@ defmodule FortuneGenerator.GeneratorTest do
     test "it will display a link to retain the fortune", %{session: session} do
       session
       |> click_reveal_fortune()
-      |> assert_in_body("I'll live with it")
+      |> assert_in_body("It's OK. I'll manage.")
     end
   end
 end

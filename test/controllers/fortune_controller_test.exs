@@ -43,7 +43,7 @@ defmodule FortuneGenerator.FortuneControllerTest do
     test "renders link to retain fortune", %{conn: conn} do
       conn = get conn, fortune_path(conn, :edit)
 
-      assert html_response(conn, 200) =~ "I'll live with it"
+      assert html_response(conn, 200) =~ "It's OK. I'll manage."
     end
   end
 
