@@ -1,4 +1,4 @@
 = form_for @changeset, @action, fn f ->
- = text_input f, :fortune
+ = text_input f, :fortune, required: true
 
  = submit "Change your fortune"

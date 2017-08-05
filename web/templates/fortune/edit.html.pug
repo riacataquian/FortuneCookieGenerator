@@ -1,3 +1,6 @@
 h1= @fortune_cookie.fortune
 
 = render "form.html", changeset: @changeset, action: fortune_path(@conn, :update, @fortune_cookie)
+
+= link to: fortune_path(@conn, :show, @fortune_cookie), class: "nav-link" do
+  | I'll live with it

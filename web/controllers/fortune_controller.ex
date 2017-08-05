@@ -14,7 +14,10 @@ defmodule FortuneGenerator.FortuneController do
 
   def edit(conn, _params) do
     fortune_cookie = FortuneCookie.random()
-    changeset = FortuneCookie.build_changeset(fortune_cookie)
+    changeset =
+      fortune_cookie
+      |> FortuneCookie.build_changeset()
+      |> Ecto.Changeset.change(%{fortune: nil})
 
     render conn, "edit.html", changeset: changeset, fortune_cookie: fortune_cookie
   end
