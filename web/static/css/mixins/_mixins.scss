@@ -7,12 +7,12 @@
 /*
  * Modular scale helpers
  */
-@mixin font-size($n) {
-  font-size: $n;
+/* @mixin font-size($n) { */
+/*   font-size: $n; */
   /* font-size: ms-respond($n); */
   /* TODO make me work */
   /* @include ms-respond(font-size, 5); */
-}
+/* } */
 
 /*
  * Antialias

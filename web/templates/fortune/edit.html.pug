@@ -1,6 +1,8 @@
-h1.fortune-header= @fortune_cookie.fortune
+.row
+  .block.col-lg-12
+    h2= format_text(@fortune_cookie.fortune)
 
-= render "form.html", changeset: @changeset, action: fortune_path(@conn, :update, @fortune_cookie)
+    = render "form.html", changeset: @changeset, action: fortune_path(@conn, :update, @fortune_cookie)
 
-= link to: fortune_path(@conn, :show, @fortune_cookie), class: "nav-link" do
-  | It's OK. I'll manage.
+    = link to: fortune_path(@conn, :show, @fortune_cookie), class: "nav-link" do
+      | It's OK. I'll manage.

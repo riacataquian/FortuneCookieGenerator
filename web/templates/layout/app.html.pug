@@ -12,10 +12,11 @@ html(lang="en")
 
   body
     .container
-      .header
-        h1 Header
+      .center
+        .header
+          h1 Crack open your fortune cookie
 
-      = render "flash.html", conn: @conn
-      = render @view_module, @view_template, assigns
+        = render "flash.html", conn: @conn
+        = render @view_module, @view_template, assigns
 
   script(src=static_path(@conn, "/js/app.js"))

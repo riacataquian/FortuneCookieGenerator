@@ -1,0 +1,19 @@
+@import '../common';
+
+.btn {
+  & {
+    font-family: $font-family-sans-serif;
+    font-size: $font-size-base;
+  }
+
+  &.-block {
+    padding: 10px 16px;
+    line-height: 1.33333;
+    border-radius: 1px;
+  }
+
+  &.-warm {
+    background: $warm;
+    color: white;
+  }
+}
