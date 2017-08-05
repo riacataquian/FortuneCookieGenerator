@@ -1,4 +1,6 @@
-@import './common';
+@import './base';
+@import 'modularscale-sass/stylesheets/modularscale';
+@import 'bootstrap-sass/assets/stylesheets/bootstrap';
 
 html, body {
   background: $bg;
