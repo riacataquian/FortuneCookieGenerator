@@ -1,0 +1,8 @@
+.flash
+  = if info = get_flash(@conn, :info) do
+    p(class="alert alert-info" role="alert")
+      = info
+
+  = if error = get_flash(@conn, :error) do
+    p(class="alert alert-error" role="alert")
+      = error

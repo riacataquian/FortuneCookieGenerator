@@ -17,7 +17,7 @@ defmodule FortuneGenerator.Mixfile do
   #
   # Type `mix help compile.app` for more information.
   def application do
-    [mod: {FortuneCookie, []},
+    [mod: {FortuneGenerator, []},
      applications: [
        :phoenix,
        :phoenix_pubsub,

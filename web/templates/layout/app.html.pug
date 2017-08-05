@@ -1,0 +1,21 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible" content="IE=edge")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    meta(name="description" content="Fortune Cookie Generator Website")
+    meta(name="author" content="Ria Cataquian")
+
+    title Welcome to FortuneCookie!
+    link(rel="stylesheet" href=static_path(@conn, "/css/app.css"))
+
+  body
+    .container
+      .header
+        h1 Header
+
+      = render "flash.html", conn: @conn
+      = render @view_module, @view_template, assigns
+
+  script(src=static_path(@conn, "/js/app.js"))
