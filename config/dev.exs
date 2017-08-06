@@ -34,7 +34,7 @@ config :logger, :console, format: "[$level] $message\n"
 config :phoenix, :stacktrace_depth, 20
 
 # Configure your database
-if File.exists?("database.exs") do
+if File.exists?("config/database.exs") do
   import_config "database.exs"
 else
   config :fortune_generator, FortuneGenerator.Repo,

@@ -55,7 +55,7 @@ defmodule FortuneGenerator.FortuneTest do
     test "displays the initial retrieved fortune", %{session: session} do
       session
       |> click_reveal_fortune()
-      |> click_link("It's OK. I'll manage.")
+      |> click_link("Accept my fortune")
 
       assert_in_body session, @fortune
     end

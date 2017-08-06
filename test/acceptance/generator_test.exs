@@ -32,7 +32,7 @@ defmodule FortuneGenerator.GeneratorTest do
     test "it will display a link to retain the fortune", %{session: session} do
       session
       |> click_reveal_fortune()
-      |> assert_in_body("It's OK. I'll manage.")
+      |> assert_in_body("Accept my fortune")
     end
   end
 end

@@ -24,7 +24,7 @@ defmodule Seed do
   defp start do
     Logger.info "Reading all data.."
 
-    case File.read("priv/fixtures/fortunes.exs") do
+    case File.read("priv/fixtures/fortunes") do
       {:ok, body} ->
         body
         |> parse()

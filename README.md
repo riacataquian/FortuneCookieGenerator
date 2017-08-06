@@ -7,8 +7,14 @@
     See [Elixir's installation guide](https://elixir-lang.org/install.html).
   * Nodejs v8.1.4
   * PostgreSQL 9.6.3
-  * Wallaby, the package used for our browser test, requires `phantomjs`.
+  * [Wallaby](Wallaby), the package used for our browser test, requires `phantomjs`.
   * Phoenix by default, uses [brunch](http://brunch.io/).
+
+### For [asdf](https://github.com/asdf-vm/asdf) users
+  There is a `.tool-versions` artifact on the project's root directory. To install the plugins, run:
+  ```
+  asdf install
+  ```
 
 ### Starting the app
 
@@ -27,10 +33,15 @@ To start the FortuneGenerator app, follow the steps:
 
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
+### References
+  * [Credo Lint](https://github.com/rrrene/credo)
+  * [RSCSS - Reasonable System for CSS Stylesheet Structure](https://github.com/rstacruz/rscss)
+
 ### Notes
 
   * Source code is under `web/` directory.
   * Some helpers can be found at `lib/fortune_generator/`.
-  * Seeds data can be found at `priv/fixtures/fortunes.exs`.
-  * Run `mix test` to run the tests and `mix test --trace` for a more detailed tests. See `test/` directory to test's source code.
-  * Run `mix credo` to run Elixir stylelinter, and `mix credo --strict` for a more stricter linting. Please note: we are not changing auto-generated Elixir and Phoenix's code as requested by credo.
+  * Seeds data can be found at `priv/fixtures/fortunes`.
+  * Run `mix test` to run the tests and `mix test --trace` for a more detailed tests. See `test/` directory to view test's source code.
+  * Run `mix credo` to run Elixir stylelinter, and `mix credo --strict` for a more stricter linting. 
+    Please note: Credo's strict linting warns about readability issues with Elixir and Phoenix's auto-generated code.

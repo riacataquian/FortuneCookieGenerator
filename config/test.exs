@@ -16,7 +16,7 @@ config :wallaby,
 config :logger, level: :warn
 
 # Configure your database
-if File.exists?("database.exs") do
+if File.exists?("config/database.exs") do
   import_config "database.exs"
 else
   config :fortune_generator, FortuneGenerator.Repo,

@@ -2,7 +2,6 @@
 .row
   .content-block.col-lg-12
     h4 Of course, you can change your fortune!
-    p Type in the text box your desired fortune and it will be changed accordingly.
     = render "form.html", changeset: @changeset, action: fortune_path(@conn, :update, @fortune_cookie)
 
   = link to: fortune_path(@conn, :random), class: "link -warm -navigation-left" do

@@ -59,7 +59,7 @@ defmodule FortuneGenerator.FortuneControllerTest do
     test "renders link to retain fortune", %{conn: conn} do
       conn = get conn, fortune_path(conn, :random)
 
-      assert html_response(conn, 200) =~ "It's OK. I'll manage."
+      assert html_response(conn, 200) =~ "Change my fortune"
     end
   end
 
@@ -75,7 +75,7 @@ defmodule FortuneGenerator.FortuneControllerTest do
       conn = get conn, fortune_path(conn, :edit, fortune_cookie)
 
       assert conn.assigns.fortune_cookie
-      assert html_response(conn, 200) =~ "Type in the text box"
+      assert html_response(conn, 200) =~ "Of course, you can change your fortune!"
     end
 
 
