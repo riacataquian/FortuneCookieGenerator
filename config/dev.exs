@@ -34,10 +34,14 @@ config :logger, :console, format: "[$level] $message\n"
 config :phoenix, :stacktrace_depth, 20
 
 # Configure your database
-config :fortune_generator, FortuneGenerator.Repo,
-  adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
-  database: "fortune_generator_dev",
-  hostname: "localhost",
-  pool_size: 10
+if File.exists?("database.exs") do
+  import_config "database.exs"
+else
+  config :fortune_generator, FortuneGenerator.Repo,
+    adapter: Ecto.Adapters.Postgres,
+    username: "postgres",
+    password: "postgres",
+    database: "fortune_generator_dev",
+    hostname: "localhost",
+    pool_size: 10
+end

@@ -1,0 +1,18 @@
+case Mix.env do
+  :dev ->
+    config :fortune_generator, FortuneGenerator.Repo,
+      adapter: Ecto.Adapters.Postgres,
+      username: "postgres",
+      password: "postgres",
+      database: "fortune_generator_dev",
+      hostname: "localhost",
+      pool_size: 10
+  :test ->
+    config :fortune_generator, FortuneGenerator.Repo,
+      adapter: Ecto.Adapters.Postgres,
+      username: "postgres",
+      password: "postgres",
+      database: "fortune_generator_test",
+      hostname: "localhost",
+      pool: Ecto.Adapters.SQL.Sandbox
+end

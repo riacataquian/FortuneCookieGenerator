@@ -16,10 +16,14 @@ config :wallaby,
 config :logger, level: :warn
 
 # Configure your database
-config :fortune_generator, FortuneGenerator.Repo,
-  adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
-  database: "fortune_generator_test",
-  hostname: "localhost",
-  pool: Ecto.Adapters.SQL.Sandbox
+if File.exists?("database.exs") do
+  import_config "database.exs"
+else
+  config :fortune_generator, FortuneGenerator.Repo,
+    adapter: Ecto.Adapters.Postgres,
+    username: "postgres",
+    password: "postgres",
+    database: "fortune_generator_test",
+    hostname: "localhost",
+    pool: Ecto.Adapters.SQL.Sandbox
+end

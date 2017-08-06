@@ -3,6 +3,7 @@
 /db
 /deps
 /*.ez
+/config/database.exs
 
 # Generated on crash by the VM
 erl_crash.dump
