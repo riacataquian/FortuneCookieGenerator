@@ -1,1 +1,7 @@
-h1.fortune-header= @fortune_cookie.fortune
+= render "fortune_cookie.html", fortune_cookie: @fortune_cookie
+
+.row
+  .content-block.col-lg-12
+    p.text Want to crack more fortune cookies?
+    = link to: fortune_path(@conn, :random), class: "btn -block -warm" do
+      | Click me to crack more cookies

@@ -9,11 +9,14 @@ defmodule FortuneGenerator.FortuneController do
 
   def show(conn, %{"id" => fortune_id}) do
     fortune_cookie = FortuneCookie.get(fortune_id)
-    render conn, "show.html", fortune_cookie: fortune_cookie
+
+    conn
+    |> put_session(:fortune_cookie, nil)
+    |> render("show.html", fortune_cookie: fortune_cookie)
   end
 
-  def edit(conn, _params) do
-    fortune_cookie = FortuneCookie.random()
+  def edit(conn, %{"id" => fortune_id}) do
+    fortune_cookie = FortuneCookie.get(fortune_id)
     changeset =
       fortune_cookie
       |> FortuneCookie.build_changeset()
@@ -22,10 +25,23 @@ defmodule FortuneGenerator.FortuneController do
     render conn, "edit.html", changeset: changeset, fortune_cookie: fortune_cookie
   end
 
+  def random(conn, _params) do
+    case get_session(conn, :fortune_cookie) do
+      nil ->
+        fortune_cookie = FortuneCookie.random()
+        conn
+        |> put_session(:fortune_cookie, fortune_cookie)
+        |> render("random.html", fortune_cookie: fortune_cookie)
+      fortune_cookie ->
+        render(conn, "random.html", fortune_cookie: fortune_cookie)
+    end
+  end
+
   def update(conn, %{"fortune_cookie" => params, "id" => id}) do
     case FortuneCookie.update(id, params) do
       {:ok, fortune_cookie} ->
         conn
+        |> put_session(:fortune_cookie, nil)
         |> put_flash(:info, "You have updated your fortune.")
         |> redirect(to: fortune_path(conn, :show, fortune_cookie))
       {:error, changeset} ->

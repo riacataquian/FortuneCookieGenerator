@@ -1,0 +1,10 @@
+= render "fortune_cookie.html", fortune_cookie: @fortune_cookie
+.row
+  .content-block.col-lg-12
+    = link to: fortune_path(@conn, :edit, @fortune_cookie), class: "btn -block -warm" do
+      | Change my fortune
+    .content-break
+      span.text
+        | OR
+    = link to: fortune_path(@conn, :show, @fortune_cookie), class: "link -warm" do
+      | It's OK. I'll manage.

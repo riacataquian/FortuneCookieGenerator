@@ -17,8 +17,9 @@ defmodule FortuneGenerator.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", FortuneController, :index
-    get "/fortune", FortuneController, :edit
+    get "/fortune", FortuneController, :random
     put "/fortune/:id", FortuneController, :update
+    get "/change_your_fortune/:id", FortuneController, :edit
     get "/your_fortune/:id", FortuneController, :show
   end
 

@@ -1,5 +1,7 @@
+.header
+  h1 Crack open your fortune cookie
 .row
-  .block.col-lg-12
-    = link to: fortune_path(@conn, :edit), class: "btn -block -warm" do
-      | Reveal
+  .content-block.col-lg-12
+    = link to: fortune_path(@conn, :random), class: "btn -block -warm" do
+      | Click me to reveal your fortune
 

@@ -1,6 +1,5 @@
 = form_for @changeset, @action, [class: "fortune-form"], fn f ->
-  = label f, :fortune, class: "label"
-  = text_input f, :fortune, class: "field", required: true
+  = textarea f, :fortune, class: "form-control input", required: true, rows: 3
   = error_tag f, :fortune
 
-  = submit "Change your fortune"
+  = submit "Change my fortune", class: "btn -block -warm"

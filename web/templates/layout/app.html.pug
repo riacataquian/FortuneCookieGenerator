@@ -11,11 +11,9 @@ html(lang="en")
     link(rel="stylesheet" href=static_path(@conn, "/css/app.css"))
 
   body
+    = render "nav.html", conn: @conn
     .container
       .center
-        .header
-          h1 Crack open your fortune cookie
-
         = render "flash.html", conn: @conn
         = render @view_module, @view_template, assigns
 
