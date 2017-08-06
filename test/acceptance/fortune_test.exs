@@ -21,9 +21,9 @@ defmodule FortuneGenerator.FortuneTest do
       fortune = "Two cannot fall out if one does not choose."
 
       session
-      |> click_reveal_fortune()
-      |> fill_in("Fortune", with: fortune)
-      |> click_on("Change your fortune")
+      |> click_change_fortune()
+      |> fill_in("fortune_cookie_fortune", with: fortune)
+      |> click_on("Change my fortune")
 
       assert_in_body session, fortune
     end
@@ -32,9 +32,9 @@ defmodule FortuneGenerator.FortuneTest do
       fortune = "Do as you would be done by."
 
       session
-      |> click_reveal_fortune()
-      |> fill_in("Fortune", with: fortune)
-      |> click_on("Change your fortune")
+      |> click_change_fortune()
+      |> fill_in("fortune_cookie_fortune", with: fortune)
+      |> click_on("Change my fortune")
       |> find(".alert-info")
 
       assert_in_body session, fortune
@@ -42,9 +42,9 @@ defmodule FortuneGenerator.FortuneTest do
 
     test "it does not redirect with invalid data", %{session: session} do
       session
-      |> click_reveal_fortune()
-      |> fill_in("Fortune", with: "")
-      |> click_on("Change your fortune")
+      |> click_change_fortune()
+      |> fill_in("fortune_cookie_fortune", with: "")
+      |> click_on("Change my fortune")
       |> find(".alert-error")
 
       assert_in_body session, @fortune

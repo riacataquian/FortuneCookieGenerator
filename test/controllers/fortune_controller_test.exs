@@ -26,24 +26,49 @@ defmodule FortuneGenerator.FortuneControllerTest do
     assert html_response(conn, 200) =~ @fortune
   end
 
-  describe "edit/2" do
+  describe "random/2" do
     test "displays a randomly selected fortune", %{conn: conn} do
-      conn = get conn, fortune_path(conn, :edit)
+      conn = get conn, fortune_path(conn, :random)
 
       assert conn.assigns.fortune_cookie
       assert html_response(conn, 200) =~ @fortune
     end
 
-    test "renders form to update the fortune", %{conn: conn} do
-      conn = get conn, fortune_path(conn, :edit)
+    test "adds session to connection", %{conn: conn} do
+      conn = get conn, fortune_path(conn, :random)
 
-      assert html_response(conn, 200) =~ "Change your fortune"
+      session_cookie = get_session(conn, :fortune_cookie)
+
+      assert session_cookie
+      assert session_cookie.fortune == @fortune
+    end
+
+    test "renders link to update fortune", %{conn: conn} do
+      conn = get conn, fortune_path(conn, :random)
+
+      assert html_response(conn, 200) =~ "Change my fortune"
     end
 
     test "renders link to retain fortune", %{conn: conn} do
-      conn = get conn, fortune_path(conn, :edit)
+      conn = get conn, fortune_path(conn, :random)
 
       assert html_response(conn, 200) =~ "It's OK. I'll manage."
+    end
+  end
+
+  describe "edit/2" do
+    test "displays the fortune", %{conn: conn, fortune_cookie: fortune_cookie} do
+      conn = get conn, fortune_path(conn, :edit, fortune_cookie)
+
+      assert conn.assigns.fortune_cookie
+      assert html_response(conn, 200) =~ @fortune
+    end
+
+    test "render form for updating fortune", %{conn: conn, fortune_cookie: fortune_cookie} do
+      conn = get conn, fortune_path(conn, :edit, fortune_cookie)
+
+      assert conn.assigns.fortune_cookie
+      assert html_response(conn, 200) =~ "Type in the text box"
     end
   end
 
