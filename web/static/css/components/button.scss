@@ -9,10 +9,11 @@
 
   &.-warm {
     background: $warm;
-    color: $white;
+    color: white;
 
     &:hover {
-    color: $primary;
+      background: $inset-warm;
+      color: white;
     }
   }
 }
