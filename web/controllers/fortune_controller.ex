@@ -2,6 +2,7 @@ defmodule FortuneGenerator.FortuneController do
   use FortuneGenerator.Web, :controller
 
   alias FortuneGenerator.Queries.FortuneCookie
+  alias Ecto.Changeset
 
   def index(conn, _params) do
     render conn, "index.html"
@@ -20,7 +21,7 @@ defmodule FortuneGenerator.FortuneController do
     changeset =
       fortune_cookie
       |> FortuneCookie.build_changeset()
-      |> Ecto.Changeset.change(%{fortune: nil})
+      |> Changeset.change(%{fortune: nil})
 
     render conn, "edit.html", changeset: changeset, fortune_cookie: fortune_cookie
   end

@@ -1,6 +1,8 @@
 defmodule FortuneGenerator.FortuneCookie do
   use FortuneGenerator.Web, :model
 
+  @moduledoc false
+
   schema "fortune_cookies" do
     field :fortune, :string
 

@@ -50,6 +50,7 @@ defmodule FortuneGenerator.Mixfile do
      {:expug, "~> 0.7.3"},
      {:phoenix_expug, ">= 0.0.3"},
      {:wallaby, "~> 0.15.0", only: :test},
+     {:credo, "~> 0.8", only: [:dev, :test], runtime: false},
      {:cowboy, "~> 1.0"}]
   end
 
