@@ -41,3 +41,16 @@ h6 {
   color: $mustard;
   font-family: $font-family-header;
 }
+
+textarea {
+  resize: none;
+}
+
+.btn {
+  font-family: $font-family-sans-serif;
+  font-size: $font-size-base;
+}
+
+a:hover {
+  background: none;
+}

@@ -1,2 +1,5 @@
+@import 'bootstrap-sass/assets/stylesheets/bootstrap';
 @import './variables';
 @import './base';
+@import 'iconfonts/stylesheets/ionicons';
+@include ion-font;

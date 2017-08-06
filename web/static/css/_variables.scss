@@ -15,14 +15,4 @@ $primary: #B8C1C9;
 // Neutrals
 $warm: #E18942;
 $mustard: #EECD86;
-
-/*
-* Modular scale
-*/
-$modularscale: (
-  base: 1em,
-  ratio: 1.5
-);
-
-$ms-base: $font-size-base;
-$ms-ratio: 1.2;
+$white: lighten($primary, 10%);

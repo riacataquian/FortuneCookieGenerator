@@ -1,0 +1,8 @@
+@import '../common';
+
+.nav {
+  & {
+    height: 3px;
+    background: $warm;
+  }
+}

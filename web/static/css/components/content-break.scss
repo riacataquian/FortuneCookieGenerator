@@ -1,0 +1,29 @@
+@import '../common';
+
+.content-break {
+  & {
+    padding: 20px 0;
+  }
+
+  > .text {
+    & {
+      position: relative;
+      background: $bg;
+      color: $white;
+      padding: 4px;
+      z-index: 1;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 12px;
+      right: -16px;
+
+      background: $primary;
+      padding: 1px;
+      width: 60px;
+      z-index: -1;
+    }
+  }
+}

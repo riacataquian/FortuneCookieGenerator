@@ -1,0 +1,11 @@
+@import '../common';
+
+.link {
+  & {
+    font: $font-family-header;
+  }
+
+  &.-warm {
+    color: $warm;
+  }
+}
