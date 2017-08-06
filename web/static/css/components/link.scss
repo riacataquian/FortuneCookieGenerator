@@ -8,4 +8,35 @@
   &.-warm {
     color: $warm;
   }
+
+  &.-navigation-left {
+    & {
+      position: relative;
+    }
+
+    &:before {
+      @include ion-icon("ios-arrow-back", 18px);
+      position: absolute;
+      top: -1px;
+      left: -12px;
+    }
+  }
+
+  &.-home {
+    & {
+      padding: 20px;
+      color: $warm;
+      position: absolute;
+      right: 0;
+    }
+
+    &:before {
+      @include ion-icon("home", 28px);
+    }
+
+    &:hover {
+      background: none;
+      color: $mustard;
+    }
+  }
 }

@@ -45,7 +45,7 @@ defmodule FortuneGenerator.FortuneTest do
       |> click_change_fortune()
       |> fill_in("fortune_cookie_fortune", with: "")
       |> click_on("Change my fortune")
-      |> find(".alert-error")
+      |> find(".alert-warning")
 
       assert_in_body session, @fortune
     end

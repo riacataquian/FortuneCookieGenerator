@@ -21,9 +21,16 @@ defmodule FortuneGenerator.FortuneControllerTest do
     assert html_response(conn, 200) =~ "Fortune Cookie"
   end
 
-  test "show/2 displays a single fortune", %{conn: conn, fortune_cookie: fortune_cookie} do
-    conn = get conn, fortune_path(conn, :show, fortune_cookie)
-    assert html_response(conn, 200) =~ @fortune
+  describe "show/2" do
+    test "displays a single fortune", %{conn: conn, fortune_cookie: fortune_cookie} do
+      conn = get conn, fortune_path(conn, :show, fortune_cookie)
+      assert html_response(conn, 200) =~ @fortune
+    end
+
+    test "redirects to index if id is non-existent", %{conn: conn} do
+      conn = get conn, fortune_path(conn, :show, %FortuneCookie{id: "999"})
+      assert redirected_to(conn) == fortune_path(conn, :index)
+    end
   end
 
   describe "random/2" do
@@ -69,6 +76,12 @@ defmodule FortuneGenerator.FortuneControllerTest do
 
       assert conn.assigns.fortune_cookie
       assert html_response(conn, 200) =~ "Type in the text box"
+    end
+
+
+    test "redirects to index if id is non-existent", %{conn: conn} do
+      conn = get conn, fortune_path(conn, :edit, %FortuneCookie{id: "999"})
+      assert redirected_to(conn) == fortune_path(conn, :index)
     end
   end
 

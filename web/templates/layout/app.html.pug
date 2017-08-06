@@ -11,8 +11,8 @@ html(lang="en")
     link(rel="stylesheet" href=static_path(@conn, "/css/app.css"))
 
   body
-    = render "nav.html", conn: @conn
     .container
+      = render "nav.html", conn: @conn
       .center
         = render "flash.html", conn: @conn
         = render @view_module, @view_template, assigns
