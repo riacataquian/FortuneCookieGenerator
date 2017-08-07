@@ -11,7 +11,7 @@
   * Phoenix by default, uses [brunch](http://brunch.io/).
 
 ### For [asdf](https://github.com/asdf-vm/asdf) users
-  There is a `.tool-versions` artifact on the project's root directory. To install the plugins, run:
+  There is a [.tool-versions](https://github.com/riacataquian/FortuneCookieGenerator/blob/master/.tool-versions) artifact on the project's root directory. To install the plugins, run:
   ```
   asdf install
   ```
@@ -45,3 +45,5 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
   * Run `mix test` to run the tests and `mix test --trace` for a more detailed tests. See `test/` directory to view test's source code.
   * Run `mix credo` to run Elixir stylelinter, and `mix credo --strict` for a more stricter linting. 
     Please note: Credo's strict linting warns about readability issues with Elixir and Phoenix's auto-generated code.
+    <img width="696" alt="screen shot 2017-08-07 at 10 21 35 am" src="https://user-images.githubusercontent.com/7468021/29011587-dbbcd4c2-7b66-11e7-8575-10ea2d177c2b.png">
+
