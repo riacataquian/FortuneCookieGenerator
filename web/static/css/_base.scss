@@ -7,7 +7,7 @@ html, body {
 }
 
 .center {
-  padding: 160px 0;
+  padding: 56px 0;
   text-align: center;
   width: 90%;
   margin: 0 auto;
@@ -16,22 +16,6 @@ html, body {
 /*
  * Basic text
  */
-h1 {
-  /* @include font-size(5); */
-}
-
-h2 {
-  /* @include font-size(4); */
-}
-
-h3 {
-  /* @include font-size(3); */
-}
-
-h4 {
-  /* @include font-size(2); */
-}
-
 h1,
 h2,
 h3,
